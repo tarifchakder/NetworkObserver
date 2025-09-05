@@ -1,12 +1,12 @@
 [versions]
-agp                        = "8.9.1"
+agp                        = "8.12.2"
 compileSdk                 = "36"
 minSdk                     = "24"
 targetSdk                  = "36"
 activityCompose            = "1.10.1"
 composeMultiplatform       = "1.8.2"
-kotlin                     = "2.1.10"
-coroutines                 = "1.10.1"
+kotlin                     = "2.2.10"
+coroutines                 = "1.10.2"
 coroutinesCore             = "1.10.2"
 gradlePublish              = "0.29.0"
 dokka                      = "1.9.20"
@@ -24,5 +24,6 @@ androidLibrary             = { id = "com.android.library", version.ref = "agp" }
 composeMultiplatform       = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
 composeCompiler            = { id = "org.jetbrains.kotlin.plugin.compose",version.ref = "kotlin" }
 kotlinMultiplatform        = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlinCocoapods            = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 dokka                      = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 mavenPublish               = { id = "com.vanniktech.maven.publish", version.ref = "gradlePublish" }
