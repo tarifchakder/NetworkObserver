@@ -10,6 +10,7 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.mavenPublish)
     alias(libs.plugins.dokka)
+    alias(libs.plugins.kotlinCocoapods)
 }
 
 kotlin {
@@ -17,6 +18,7 @@ kotlin {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_17)
         }
+        publishLibraryVariants("release", "debug")
     }
 
     listOf(
@@ -30,11 +32,16 @@ kotlin {
         }
     }
 
+    cocoapods {
+        ios.deploymentTarget = "15.0"
+        pod("Reachability", "~> 3.2")
+        noPodspec()
+    }
+
     jvm("desktop")
 
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
-        moduleName = "network"
         browser {
             val rootDirPath = project.rootDir.path
             val projectDirPath = project.projectDir.path
@@ -49,6 +56,7 @@ kotlin {
             }
         }
         binaries.executable()
+        outputModuleName.set("network")
     }
 
     sourceSets {
