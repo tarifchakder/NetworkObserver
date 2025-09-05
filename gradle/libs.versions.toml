@@ -1,28 +1,28 @@
 [versions]
 agp                        = "8.9.1"
-android-compileSdk         = "36"
-android-minSdk             = "24"
-android-targetSdk          = "36"
-androidx-activityCompose   = "1.10.1"
-compose-multiplatform      = "1.8.2"
+compileSdk                 = "36"
+minSdk                     = "24"
+targetSdk                  = "36"
+activityCompose            = "1.10.1"
+composeMultiplatform       = "1.8.2"
 kotlin                     = "2.1.10"
-kotlinx-coroutines         = "1.10.1"
-kotlinxCoroutinesCore      = "1.10.2"
+coroutines                 = "1.10.1"
+coroutinesCore             = "1.10.2"
 gradlePublish              = "0.29.0"
 dokka                      = "1.9.20"
 startupRuntime             = "1.2.0"
 
 [libraries]
-androidx-activity-compose  = { module = "androidx.activity:activity-compose",       version.ref = "androidx-activityCompose" }
-androidx-startup-runtime   = { module = "androidx.startup:startup-runtime",         version.ref = "startupRuntime" }
-kotlinx-coroutines-core    = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core",   version.ref = "kotlinxCoroutinesCore" }
-kotlinx-coroutines-swing   = { group  = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
+activityCompose            = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
+startupRuntime             = { module = "androidx.startup:startup-runtime", version.ref = "startupRuntime" }
+coroutinesCore             = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutinesCore" }
+coroutinesSwing            = { group  = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "coroutines" }
 
 [plugins]
-androidApplication         = { id = "com.android.application",            version.ref = "agp" }
-androidLibrary             = { id = "com.android.library",                version.ref = "agp" }
-composeMultiplatform       = { id = "org.jetbrains.compose",              version.ref = "compose-multiplatform" }
+androidApplication         = { id = "com.android.application", version.ref = "agp" }
+androidLibrary             = { id = "com.android.library", version.ref = "agp" }
+composeMultiplatform       = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
 composeCompiler            = { id = "org.jetbrains.kotlin.plugin.compose",version.ref = "kotlin" }
 kotlinMultiplatform        = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-dokka                      = { id = "org.jetbrains.dokka",                version.ref = "dokka" }
-gradle-publish             = { id = "com.vanniktech.maven.publish",       version.ref = "gradlePublish" }
+dokka                      = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+mavenPublish               = { id = "com.vanniktech.maven.publish", version.ref = "gradlePublish" }
