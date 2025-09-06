@@ -1,19 +1,99 @@
+# ============================================
+# Core Build / Gradle / Kotlin
+# ============================================
 *.iml
 .kotlin
-.gradle
+.gradle/
 **/build/
-xcuserdata
 !src/**/build/
+out/
+!gradle/wrapper/gradle-wrapper.jar
+.konan/
+build/bin/
+
+# ============================================
+# Local Config
+# ============================================
 local.properties
-.idea
-.DS_Store
-captures
-.externalNativeBuild
-.cxx
+gradle.properties
+
+# ============================================
+# IntelliJ IDEA / Android Studio
+# ============================================
+.idea/
+*.iml
+*.ipr
+*.iws
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/dictionaries
+.idea/libraries
+.idea/caches
+.idea/modules.xml
+
+# ============================================
+# Xcode / iOS
+# ============================================
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
 !*.xcodeproj/xcshareddata/
 !*.xcodeproj/project.xcworkspace/
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
+xcuserdata
+
+# ============================================
+# Android Specific
+# ============================================
+.cxx/
+.captures/
+*.apk
+*.ap_
+*.dex
+*.class
+*.log
+*.lock
+*.hprof
+.externalNativeBuild
+navigation/
+*.aab
+*.aar
+*.jar
+*.keystore
+*.jks
+
+# ============================================
+# Kotlin/JS & WASM
+# ============================================
+.kotlin-js-store/
+build/.kotlin-js-store/
 kotlin-js-store/wasm/
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+dist/
+
+# ============================================
+# Misc IDEs
+# ============================================
+.classpath
+.project
+.settings/
+.vscode/
+
+# ============================================
+# OS Specific
+# ============================================
+.DS_Store
+Thumbs.db
+
+# ============================================
+# Gradle Wrapper / Distribution
+# ============================================
+gradle-app.setting
+gradlew
+gradlew.bat
