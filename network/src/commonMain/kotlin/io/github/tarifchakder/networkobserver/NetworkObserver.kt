@@ -18,7 +18,7 @@ fun networkObserver(): Flow<NetworkStatus> = networkHelper().networkState
 
 @Composable
 fun networkTypeAsState(): State<NetworkType> {
-    return produceState(initialValue = NetworkType.CELLULAR) {
+    return produceState(initialValue = NetworkType.UNKNOWN) {
         networkHelper().networkType.collect {
             value = it
         }
