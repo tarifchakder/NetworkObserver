@@ -11,12 +11,13 @@ coroutinesCore             = "1.10.2"
 gradlePublish              = "0.29.0"
 dokka                      = "1.9.20"
 startupRuntime             = "1.2.0"
+networkObserver            = "1.0.0"
 
 [libraries]
 activityCompose            = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
 startupRuntime             = { module = "androidx.startup:startup-runtime", version.ref = "startupRuntime" }
 coroutinesCore             = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutinesCore" }
-coroutinesSwing            = { group  = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "coroutines" }
+network-observer           = { module = "io.github.tarifchakder.networkobserver:networkobserver", version.ref = "networkObserver" }
 
 [plugins]
 androidApplication         = { id = "com.android.application", version.ref = "agp" }

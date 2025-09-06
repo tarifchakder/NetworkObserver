@@ -106,7 +106,7 @@ mavenPublishing {
 
     pom {
         name.set("NetworkObserver")
-        description.set("\uD83D\uDCE1 NetworkObserver – A Lightweight Kotlin Multiplatform Library for Real-Time Network Updates")
+        description.set("\uD83C\uDF10 NetworkObserver – A Lightweight Kotlin Multiplatform Library for Real-Time Network Updates")
         inceptionYear.set("2025")
         url.set("https://github.com/tarifchakder/NetworkObserver")
 
