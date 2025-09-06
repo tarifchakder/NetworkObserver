@@ -9,7 +9,7 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 
-internal class NetworkUtil(context: Context) : NetworkHelper {
+internal class NetworkUtilAndroid(context: Context) : NetworkHelper {
 
     private val connectivityManager by unsafeLazy {
         context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

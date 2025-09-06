@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 
 @OptIn(ExperimentalForeignApi::class)
-internal class NetworkUtil : NetworkHelper {
+internal class NetworkUtilIOS : NetworkHelper {
 
     private val reachability: Reachability? by unsafeLazy {
         Reachability.reachabilityForInternetConnection()
