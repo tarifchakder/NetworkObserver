@@ -12,7 +12,7 @@
 
 ## ✨ Overview
 
-**KToast** is a lightweight toast/notice library built for **Compose Multiplatform**. It gives you a simple, unified API to show toasts across **Android**, **iOS**, **Desktop (JVM)**, and **Web/Wasm**—with sensible defaults and smooth transitions.
+**NetworkObserver** is a lightweight Kotlin Multiplatform library built for **Compose Multiplatform**. It provides a simple, unified API to monitor network connectivity across **Android**, **iOS**, and **Web/Wasm**, with **real-time updates** and **platform-specific insights**.
 
 ---
 
@@ -26,17 +26,16 @@
 
 ## 📦 Features
 
-- ⚡ **Cross-platform**: Android, iOS, Desktop (JVM), Web/Wasm
-- 🎛️ **Simple API**: one `ToastState` you can pass around
-- 🎨 **Composable** host: place it anywhere in your layout
-- 🌀 **Transitions**: slide/fade presets via `ToastDefaults`
-- 🧱 **Works with your theme**: drop into any Material setup
+- ⚡ **Cross-platform**: Android, iOS, Web/Wasm
+- 📡 **Real-time network updates**
+- 🌐 **Network type detection**: WiFi, Cellular, Ethernet, Unknown
+- 🎨 **Composable-ready**: integrate easily into your UI
 
 ---
 
 ## 🚀 Installation
 
-Add KToast to your **multiplatform** project by depending on it from `commonMain`.
+Add NetworkObserver to your **multiplatform** project by depending on it from `commonMain`.
 
 ### Gradle (Kotlin DSL)
 
@@ -45,7 +44,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation("io.github.tarifchakder.ktoast:ktoast:1.0.0")
+                implementation("io.github.tarifchakder.networkobserver:networkobserver:<latest-version>")
             }
         }
     }
@@ -55,35 +54,29 @@ kotlin {
 
 ```toml
 [versions]
-toast = "1.0.0"
+networkObserver = "1.0.0" # use latest version
 
 [libraries]
-k-toast = { module = "io.github.tarifchakder.ktoast:ktoast", version.ref = "toast" }
+network-observer = { module = "io.github.tarifchakder.networkobserver:networkobserver", version.ref = "networkObserver" }
 ```
 
 ## Usage
-
-```Kotlin
-// Create toast state
-val toast = ToastState()
-```
 ```kotlin
 MaterialTheme {
-  Box {
-    ToastHost(
-      modifier = Modifier.fillMaxSize().padding(20.dp),
-      alignment = Alignment.BottomCenter,
-      hostState = toast,
-      transitionSpec = { ToastDefaults.SLIDE }
-    )
-  }
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center
+    ) {
+
+        val status by networkObserverAsState()
+        Text("Status: $status")
+
+        val networkType by networkTypeAsState()
+        Text("Network type: $networkType")
+    }
 }
 ```
 
-```Kotlin
-// Now call it anywhere
-toast1.showToast("Hi this is a common toast")
-```
 ## 🤝 Contributing
 Issues and PRs are welcome!
 If you’d like to add features or fix bugs, please open an issue first so we can discuss scope and approach.
