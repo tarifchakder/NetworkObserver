@@ -1,7 +1,7 @@
-# 🔔 KToast
+# 🌐 NetworkObserver
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.tarifchakder.ktoast/ktoast)](https://central.sonatype.com/artifact/io.github.tarifchakder.ktoast/ktoast)
-[![License](https://img.shields.io/github/license/tarifchakder/ktoast)](LICENSE)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.tarifchakder.networkobserver/NetworkObserver)](https://central.sonatype.com/artifact/io.github.tarifchakder.networkobserver/NetworkObserver)
+[![License](https://img.shields.io/github/license/tarifchakder/NetworkObserver)](LICENSE)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.1.10-blue.svg?logo=kotlin)](https://kotlinlang.org)
 [![Compose Multiplatform](https://img.shields.io/badge/Compose%20Multiplatform-1.7.3-blue)](https://github.com/JetBrains/compose-multiplatform)
 
