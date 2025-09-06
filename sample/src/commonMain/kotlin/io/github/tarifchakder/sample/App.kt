@@ -19,11 +19,12 @@ fun App() {
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center
         ) {
-            val networkType by networkTypeAsState()
-            Text("Network type: $networkType")
 
             val status by networkObserverAsState()
-            Text("Network type: $status")
+            Text("Status: $status")
+
+            val networkType by networkTypeAsState()
+            Text("Network type: $networkType")
         }
     }
 }
