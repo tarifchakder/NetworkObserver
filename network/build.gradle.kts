@@ -41,8 +41,6 @@ kotlin {
         podfile = project.file("../iosApp/Podfile")
     }
 
-    jvm("desktop")
-
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         browser {
@@ -59,7 +57,6 @@ kotlin {
             }
         }
         binaries.executable()
-        outputModuleName.set("network")
     }
 
     sourceSets {
