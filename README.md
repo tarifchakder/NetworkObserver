@@ -6,7 +6,6 @@
 [![Compose Multiplatform](https://img.shields.io/badge/Compose%20Multiplatform-1.8.2-blue)](https://github.com/JetBrains/compose-multiplatform) 
 ![badge-android](https://img.shields.io/badge/Platform-Android-6EDB8D.svg?style=flat) 
 ![badge-ios](https://img.shields.io/badge/Platform-iOS-CDCDCD.svg?style=flat) 
-![badge-desktop](https://img.shields.io/badge/Platform-Desktop-DB413D.svg?style=flat) 
 ![badge-js](https://img.shields.io/badge/Platform-JS%2FWASM-FDD835.svg?style=flat)
 
 ---
