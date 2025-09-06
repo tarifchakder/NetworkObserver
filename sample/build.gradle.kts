@@ -30,7 +30,6 @@ kotlin {
         }
     }
 
-    jvm("desktop")
 
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
@@ -65,10 +64,6 @@ kotlin {
             implementation(compose.preview)
             implementation(libs.activityCompose)
         }
-        jvmMain.dependencies {
-            implementation(compose.desktop.currentOs)
-            implementation(libs.coroutinesSwing)
-        }
     }
 }
 
@@ -99,17 +94,5 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
-    }
-}
-
-compose.desktop {
-    application {
-        mainClass = "io.github.tarifchakder.sample.MainKt"
-
-        nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "io.github.tarifchakder.sample"
-            packageVersion = "1.0.0"
-        }
     }
 }
