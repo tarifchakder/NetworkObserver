@@ -1,6 +1,13 @@
 # 🌐 NetworkObserver
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.tarifchakder.networkobserver/networkobserver)](https://central.sonatype.com/artifact/io.github.tarifchakder.networkobserver/networkobserver) [![License](https://img.shields.io/github/license/tarifchakder/NetworkObserver)](LICENSE) [![Kotlin](https://img.shields.io/badge/Kotlin-2.2.10-blue.svg?logo=kotlin)](https://kotlinlang.org) [![Compose Multiplatform](https://img.shields.io/badge/Compose%20Multiplatform-1.8.2-blue)](https://github.com/JetBrains/compose-multiplatform) ![badge-android](https://img.shields.io/badge/Platform-Android-6EDB8D.svg?style=flat) ![badge-ios](https://img.shields.io/badge/Platform-iOS-CDCDCD.svg?style=flat) ![badge-desktop](https://img.shields.io/badge/Platform-Desktop-DB413D.svg?style=flat) ![badge-js](https://img.shields.io/badge/Platform-JS%2FWASM-FDD835.svg?style=flat)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.tarifchakder.networkobserver/networkobserver)](https://central.sonatype.com/artifact/io.github.tarifchakder.networkobserver/networkobserver) 
+[![License](https://img.shields.io/github/license/tarifchakder/NetworkObserver)](LICENSE) 
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.2.10-blue.svg?logo=kotlin)](https://kotlinlang.org) 
+[![Compose Multiplatform](https://img.shields.io/badge/Compose%20Multiplatform-1.8.2-blue)](https://github.com/JetBrains/compose-multiplatform) 
+![badge-android](https://img.shields.io/badge/Platform-Android-6EDB8D.svg?style=flat) 
+![badge-ios](https://img.shields.io/badge/Platform-iOS-CDCDCD.svg?style=flat) 
+![badge-desktop](https://img.shields.io/badge/Platform-Desktop-DB413D.svg?style=flat) 
+![badge-js](https://img.shields.io/badge/Platform-JS%2FWASM-FDD835.svg?style=flat)
 
 ---
 
