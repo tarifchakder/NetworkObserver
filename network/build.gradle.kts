@@ -33,9 +33,12 @@ kotlin {
     }
 
     cocoapods {
+        version = "1.0"
+        summary = "NetworkObserver – A Lightweight Kotlin Multiplatform Library for Real-Time Network Updates"
+        homepage = "https://github.com/tarifchakder/NetworkObserver"
         ios.deploymentTarget = "15.0"
         pod("Reachability", "~> 3.2")
-        noPodspec()
+        podfile = project.file("../iosApp/Podfile")
     }
 
     jvm("desktop")
