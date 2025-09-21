@@ -6,9 +6,11 @@ import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.launch
 
 /**
  * Android implementation of NetworkHelper for monitoring network connectivity and type.
@@ -112,7 +114,10 @@ internal class NetworkUtilAndroid(context: Context) : NetworkHelper {
     override val networkState: Flow<NetworkStatus> = callbackFlow {
 
         val callback = networkStatusCallBack { connectionState ->
-            trySend(connectionState)
+            launch {
+                delay(50)
+                trySend(connectionState)
+            }
         }
 
         val networkRequest = NetworkRequest.Builder()
@@ -179,7 +184,10 @@ internal class NetworkUtilAndroid(context: Context) : NetworkHelper {
     override val networkType: Flow<NetworkType> = callbackFlow {
 
         val callback = networkTypeCallBack { networkType ->
-            trySend(networkType)
+            launch {
+                delay(50)
+                trySend(networkType)
+            }
         }
 
         val networkRequest = NetworkRequest.Builder()
