@@ -1,4 +1,6 @@
-import com.vanniktech.maven.publish.SonatypeHost
+@file:OptIn(ExperimentalKotlinGradlePluginApi::class)
+
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
@@ -10,7 +12,6 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.mavenPublish)
     alias(libs.plugins.dokka)
-    alias(libs.plugins.kotlinCocoapods)
 }
 
 kotlin {
@@ -18,7 +19,6 @@ kotlin {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_17)
         }
-        publishLibraryVariants("release", "debug")
     }
 
     listOf(
@@ -32,14 +32,14 @@ kotlin {
         }
     }
 
-    cocoapods {
+   /* cocoapods {
         version = "1.0"
         summary = "NetworkObserver – A Lightweight Kotlin Multiplatform Library for Real-Time Network Updates"
         homepage = "https://github.com/tarifchakder/NetworkObserver"
         ios.deploymentTarget = "15.0"
         pod("Reachability", "~> 3.2")
         podfile = project.file("../iosApp/Podfile")
-    }
+    }*/
 
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
@@ -129,6 +129,6 @@ mavenPublishing {
             url.set("https://github.com/tarifchakder/NetworkObserver")
         }
     }
-    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, true)
+    publishToMavenCentral(true)
     signAllPublications()
 }

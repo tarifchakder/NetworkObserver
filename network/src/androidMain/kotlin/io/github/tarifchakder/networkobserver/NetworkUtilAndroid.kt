@@ -6,8 +6,12 @@ import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.launch
+
 
 internal class NetworkUtilAndroid(context: Context) : NetworkHelper {
 
@@ -16,9 +20,11 @@ internal class NetworkUtilAndroid(context: Context) : NetworkHelper {
     }
 
     override val networkState: Flow<NetworkStatus> = callbackFlow {
-
         val callback = networkStatusCallBack { connectionState ->
-            trySend(connectionState)
+            launch {
+                delay(50)
+                trySend(connectionState)
+            }
         }
 
         val networkRequest = NetworkRequest.Builder()
@@ -33,12 +39,15 @@ internal class NetworkUtilAndroid(context: Context) : NetworkHelper {
         awaitClose {
             connectivityManager.unregisterNetworkCallback(callback)
         }
-    }
+    }.distinctUntilChanged()
 
     override val networkType: Flow<NetworkType> = callbackFlow {
 
         val callback = networkTypeCallBack { networkType ->
-            trySend(networkType)
+            launch {
+                delay(50)
+                trySend(networkType)
+            }
         }
 
         val networkRequest = NetworkRequest.Builder()
@@ -52,12 +61,11 @@ internal class NetworkUtilAndroid(context: Context) : NetworkHelper {
         awaitClose {
             connectivityManager.unregisterNetworkCallback(callback)
         }
-    }
+    }.distinctUntilChanged()
 
     private fun getCurrentConnectivityStatus(connectivityManager: ConnectivityManager): NetworkStatus {
         val network = connectivityManager.activeNetwork ?: return NetworkStatus.Unreachable
-        val caps =
-            connectivityManager.getNetworkCapabilities(network) ?: return NetworkStatus.Unreachable
+        val caps = connectivityManager.getNetworkCapabilities(network) ?: return NetworkStatus.Unreachable
 
         return when {
             caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) && caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED) -> {
