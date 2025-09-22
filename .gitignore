@@ -35,6 +35,7 @@ gradle.properties
 # ============================================
 # Xcode / iOS
 # ============================================
+iosApp/
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
 !*.xcodeproj/xcshareddata/
