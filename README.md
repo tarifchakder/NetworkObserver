@@ -18,11 +18,9 @@
 
 ## 🖥️ Demo
 
-|              Android              |            IOS             |   
-|:---------------------------------:|:--------------------------:|
-| ![Android](screenshot/mobile.png) | ![IOS](screenshot/ios.png) |
-
----
+|              Android              |            iOS             |            Web             |              Desktop               |
+|:---------------------------------:|:--------------------------:|:--------------------------:|:----------------------------------:|
+| ![Android](screenshot/mobile.gif) | ![iOS](screenshot/ios.gif) | ![Web](screenshot/web.gif) | ![Desktop](screenshot/desktop.gif) |
 
 ## 📦 Features
 

@@ -32,14 +32,7 @@ kotlin {
         }
     }
 
-   /* cocoapods {
-        version = "1.0"
-        summary = "NetworkObserver – A Lightweight Kotlin Multiplatform Library for Real-Time Network Updates"
-        homepage = "https://github.com/tarifchakder/NetworkObserver"
-        ios.deploymentTarget = "15.0"
-        pod("Reachability", "~> 3.2")
-        podfile = project.file("../iosApp/Podfile")
-    }*/
+    jvm()
 
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
@@ -64,9 +57,14 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.material3)
             implementation(compose.ui)
+            implementation(libs.coroutinesCore)
         }
         androidMain.dependencies {
             implementation(libs.startupRuntime)
+        }
+        jvmMain.dependencies {
+            implementation(libs.coroutinesCore)
+            implementation(libs.kotlinx.coroutines.swing)
         }
     }
 }

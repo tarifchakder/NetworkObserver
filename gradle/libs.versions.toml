@@ -16,6 +16,7 @@ networkObserver            = "1.0.0"
 activityCompose            = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
 startupRuntime             = { module = "androidx.startup:startup-runtime", version.ref = "startupRuntime" }
 coroutinesCore             = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutinesCore" }
+kotlinx-coroutines-swing   = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "coroutinesCore" }
 network-observer           = { module = "io.github.tarifchakder.networkobserver:networkobserver", version.ref = "networkObserver" }
 
 [plugins]

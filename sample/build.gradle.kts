@@ -1,5 +1,6 @@
 @file:OptIn(ExperimentalKotlinGradlePluginApi::class)
 
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
@@ -30,6 +31,7 @@ kotlin {
         }
     }
 
+    jvm()
 
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
@@ -64,6 +66,10 @@ kotlin {
             implementation(compose.preview)
             implementation(libs.activityCompose)
         }
+        jvmMain.dependencies {
+            implementation(compose.desktop.currentOs)
+            implementation(libs.kotlinx.coroutines.swing)
+        }
     }
 }
 
@@ -94,5 +100,16 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+    }
+}
+
+compose.desktop {
+    application {
+        mainClass = "io.github.tarifchakder.sample.MainKt"
+        nativeDistributions {
+            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            packageName = "io.github.tarifchakder.sample"
+            packageVersion = "1.0.0"
+        }
     }
 }
