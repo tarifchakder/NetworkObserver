@@ -2,8 +2,8 @@ name: Release to Maven Central
 
 on:
   push:
-    branches:
-      - main
+    paths:
+      - 'version.properties'
 
 permissions:
   contents: write
