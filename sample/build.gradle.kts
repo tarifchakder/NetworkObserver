@@ -74,11 +74,11 @@ kotlin {
 }
 
 android {
-    namespace = "io.github.tarifchakder.sample"
+    namespace = "com.tarifchakder.sample"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "io.github.tarifchakder.sample"
+        applicationId = "com.tarifchakder.sample"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 1
@@ -105,10 +105,10 @@ android {
 
 compose.desktop {
     application {
-        mainClass = "io.github.tarifchakder.sample.MainKt"
+        mainClass = "com.tarifchakder.sample.MainKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "io.github.tarifchakder.sample"
+            packageName = "com.tarifchakder.sample"
             packageVersion = "1.0.0"
         }
     }

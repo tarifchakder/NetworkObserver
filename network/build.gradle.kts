@@ -70,7 +70,7 @@ kotlin {
 }
 
 android {
-    namespace = "io.github.tarifchakder.networkobserver"
+    namespace = "com.tarifchakder.networkobserver"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
@@ -97,7 +97,7 @@ dependencies {
 
 mavenPublishing {
     coordinates(
-        groupId = "io.github.tarifchakder.networkobserver",
+        groupId = "com.tarifchakder.networkobserver",
         artifactId = "networkobserver",
         version = "1.0.0"
     )
@@ -118,8 +118,8 @@ mavenPublishing {
         developers {
             developer {
                 id.set("tarif")
-                name.set("tarif")
-                email.set("mretchcoder@gmail.com")
+                name.set("Tarif Chakder")
+                email.set("tarifchakdar@gmail.com")
             }
         }
 
