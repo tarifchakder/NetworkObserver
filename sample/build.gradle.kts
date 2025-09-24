@@ -59,8 +59,8 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(libs.coroutinesCore)
-            implementation(projects.network)
-            //implementation(libs.network.observer)
+            //implementation(projects.network)
+            implementation(libs.network.observer)
         }
         androidMain.dependencies {
             implementation(compose.preview)

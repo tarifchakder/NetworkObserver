@@ -42,7 +42,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation("io.github.tarifchakder.networkobserver:networkobserver:<latest-version>")
+                implementation("com.tarifchakder.networkobserver:networkobserver:<latest-version>")
             }
         }
     }
@@ -52,10 +52,10 @@ kotlin {
 
 ```toml
 [versions]
-networkObserver = "1.0.0" # use latest version
+networkObserver = "1.0.5" # use latest version
 
 [libraries]
-network-observer = { module = "io.github.tarifchakder.networkobserver:networkobserver", version.ref = "networkObserver" }
+network-observer = { module = "com.tarifchakder.networkobserver:networkobserver", version.ref = "networkObserver" }
 ```
 
 ## Usage
