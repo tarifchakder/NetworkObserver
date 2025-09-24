@@ -5,7 +5,6 @@ import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 import java.util.Properties
-import kotlin.apply
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -13,7 +12,6 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.mavenPublish)
-    alias(libs.plugins.dokka)
 }
 
 val versionProps = Properties().apply {
