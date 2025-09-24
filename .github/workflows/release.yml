@@ -32,20 +32,17 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
-      # 4️⃣ Read version from version.properties and create Git tag
-      - name: Create Git Tag
-        id: create_tag
+      # 4️⃣ Read version from version.properties
+      - name: Read Version
+        id: read_version
         run: |
           VERSION=$(grep '^VERSION=' version.properties | cut -d'=' -f2)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
-          TAG="v$VERSION"
-          echo "Creating tag $TAG"
-          git tag $TAG
-          git push origin $TAG
+          echo "TAG=v$VERSION" >> $GITHUB_ENV
 
       # 5️⃣ Publish to Maven Central
       - name: Publish to Sonatype
-        run: ./gradlew publishAllPublicationsToMavenCentralRepository
+        run: ./gradlew publishAllPublicationsToMavenCentralRepository --no-configuration-cache
         env:
           ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.GPG_SIGNING_KEY_ID }}
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_KEY_CONTENTS }}
@@ -53,11 +50,32 @@ jobs:
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
 
-      # 6️⃣ Create GitHub Release
+      # 6️⃣ Check if tag exists
+      - name: Check if Git tag exists
+        id: check_tag
+        run: |
+          if git rev-parse ${{ env.TAG }} >/dev/null 2>&1; then
+            echo "TAG_EXISTS=true" >> $GITHUB_ENV
+          else
+            echo "TAG_EXISTS=false" >> $GITHUB_ENV
+          fi
+
+      # 7️⃣ Create Git Tag if not exists
+      - name: Create Git Tag
+        if: success() && env.TAG_EXISTS == 'false'
+        run: |
+          echo "Creating tag ${{ env.TAG }}"
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git tag ${{ env.TAG }}
+          git push origin ${{ env.TAG }}
+
+      # 8️⃣ Create GitHub Release if tag not exists
       - name: Create GitHub Release
+        if: success() && env.TAG_EXISTS == 'false'
         uses: softprops/action-gh-release@v1
         with:
           name: Release ${{ env.VERSION }}
-          tag_name: v${{ env.VERSION }}
+          tag_name: ${{ env.TAG }}
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
