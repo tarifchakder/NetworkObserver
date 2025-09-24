@@ -110,7 +110,7 @@ dependencies {
 
 mavenPublishing {
     coordinates(
-        groupId = "com.tarifchakder.networkobserver",
+        groupId = "com.tarifchakder",
         artifactId = "networkobserver",
         version = mavenVersion
     )
