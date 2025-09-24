@@ -3,7 +3,7 @@ name: Release to Maven Central
 on:
   push:
     branches:
-      - master
+      - main
 
 permissions:
   contents: write
@@ -60,4 +60,4 @@ jobs:
           name: Release ${{ env.VERSION }}
           tag_name: v${{ env.VERSION }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
