@@ -4,6 +4,8 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
+import java.util.Properties
+import kotlin.apply
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -13,6 +15,11 @@ plugins {
     alias(libs.plugins.mavenPublish)
     alias(libs.plugins.dokka)
 }
+
+val versionProps = Properties().apply {
+    rootProject.file("version.properties").inputStream().use { load(it) }
+}
+val mavenVersion: String = versionProps.getProperty("VERSION").trim()
 
 kotlin {
     androidTarget {
@@ -89,6 +96,14 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
+
 }
 
 dependencies {
@@ -99,7 +114,7 @@ mavenPublishing {
     coordinates(
         groupId = "com.tarifchakder.networkobserver",
         artifactId = "networkobserver",
-        version = "1.0.0"
+        version = mavenVersion
     )
 
     pom {

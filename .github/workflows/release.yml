@@ -1,0 +1,63 @@
+name: Release to Maven Central
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    environment: MAVEN
+
+    steps:
+      # 1️⃣ Checkout code (fetch tags too)
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      # 2️⃣ Setup JDK
+      - name: Setup JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+
+      # 3️⃣ Setup Gradle
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      # 4️⃣ Read version from version.properties and create Git tag
+      - name: Create Git Tag
+        id: create_tag
+        run: |
+          VERSION=$(grep '^VERSION=' version.properties | cut -d'=' -f2)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          TAG="v$VERSION"
+          echo "Creating tag $TAG"
+          git tag $TAG
+          git push origin $TAG
+
+      # 5️⃣ Publish to Maven Central
+      - name: Publish to Sonatype
+        run: ./gradlew publishAllPublicationsToMavenCentralRepository
+        env:
+          ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.GPG_SIGNING_KEY_ID }}
+          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_KEY_CONTENTS }}
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_PASSPHRASE }}
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
+
+      # 6️⃣ Create GitHub Release
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Release ${{ env.VERSION }}
+          tag_name: v${{ env.VERSION }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
