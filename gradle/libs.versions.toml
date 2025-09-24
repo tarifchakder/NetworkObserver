@@ -8,7 +8,7 @@ composeMultiplatform       = "1.7.0"
 kotlin                     = "2.0.20"
 coroutinesCore             = "1.8.1"
 gradlePublish              = "0.34.0"
-dokka                      = "1.9.20"
+dokka                      = "2.0.0"
 startupRuntime             = "1.2.0"
 networkObserver            = "1.0.0"
 
@@ -17,7 +17,7 @@ activityCompose            = { module = "androidx.activity:activity-compose", ve
 startupRuntime             = { module = "androidx.startup:startup-runtime", version.ref = "startupRuntime" }
 coroutinesCore             = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutinesCore" }
 kotlinx-coroutines-swing   = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "coroutinesCore" }
-network-observer           = { module = "io.github.tarifchakder.networkobserver:networkobserver", version.ref = "networkObserver" }
+network-observer           = { module = "com.tarifchakder.networkobserver:networkobserver", version.ref = "networkObserver" }
 
 [plugins]
 androidApplication         = { id = "com.android.application", version.ref = "agp" }
