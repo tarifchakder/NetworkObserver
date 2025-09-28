@@ -1,6 +1,6 @@
 # 🌐 NetworkObserver
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.tarifchakder.networkobserver/networkobserver)](https://central.sonatype.com/artifact/com.tarifchakder.networkobserver/networkobserver) 
+[![Maven Central](https://img.shields.io/maven-central/v/com.tarifchakder/networkobserver)](https://central.sonatype.com/artifact/com.tarifchakder/networkobserver) 
 [![License](https://img.shields.io/github/license/tarifchakder/NetworkObserver)](LICENSE) 
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.2.10-blue.svg?logo=kotlin)](https://kotlinlang.org) 
 [![Compose Multiplatform](https://img.shields.io/badge/Compose%20Multiplatform-1.8.2-blue)](https://github.com/JetBrains/compose-multiplatform) 
